@@ -1,3 +1,4 @@
+from cadastros import cadastro_livro
 while True:
     print('''BIBLIOPY | MENU PRINCIPAL
     1 - Cadastrar livro
@@ -11,8 +12,11 @@ while True:
     9 - Encerrar aplicação''')
     opcao = int(input('Informe a opção desejada: '))
     match opcao:
+        case 1:
+            cadastro_livro()
         case 9:
             print('PROGRAMA FINALIZADO...')
             break
-    print('Opção inválida! TENTE NOVAMENTE')
+        case _:
+            print('Opção inválida! TENTE NOVAMENTE')
     
