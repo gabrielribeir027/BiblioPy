@@ -1,7 +1,8 @@
-from cadastros import cadastro_livro
+from cadastros import cadastro_livro, cadastro_usuario
+
 while True:
-    print('''BIBLIOPY | MENU PRINCIPAL
-    1 - Cadastrar livro
+    print('{:=^40}'.format(' BIBLIOPY | MENU PRINCIPAL ')) 
+    print('''1 - Cadastrar livro
     2 - Cadastrar usuário
     3 - Listar livros
     4 - Listar usuários
@@ -14,6 +15,8 @@ while True:
     match opcao:
         case 1:
             cadastro_livro()
+        case 2:
+            cadastro_usuario()
         case 9:
             print('PROGRAMA FINALIZADO...')
             break
