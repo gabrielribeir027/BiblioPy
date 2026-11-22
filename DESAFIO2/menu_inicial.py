@@ -2,7 +2,7 @@ from cadastros import cadastro_livro, cadastro_usuario
 
 while True:
     print('{:=^40}'.format(' BIBLIOPY | MENU PRINCIPAL ')) 
-    print('''1 - Cadastrar livro
+    print('''    1 - Cadastrar livro
     2 - Cadastrar usuário
     3 - Listar livros
     4 - Listar usuários
@@ -12,6 +12,7 @@ while True:
     8 - Consultar resumo da biblioteca
     9 - Encerrar aplicação''')
     opcao = int(input('Informe a opção desejada: '))
+    
     match opcao:
         case 1:
             cadastro_livro()

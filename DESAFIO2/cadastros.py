@@ -1,3 +1,5 @@
+from validacoes import validar_codigo
+
 livros = []
 def cadastro_livro():
     print('{:=^40}'.format(' CADASTRO DE LIVROS '))
@@ -9,57 +11,34 @@ def cadastro_livro():
         if opcao == 'N':
             break
 
-        while True: # Estrutura sem letras / menor q 0!
-            try:
-                id_livro = int(input('CÓDIGO: '))
-                if id_livro > 0:
-                    codigo_existe = True # Abre
-                    while codigo_existe: # Códigos Repetidos!
-                        codigo_existe = False # Fecha
-                        for livro in livros:
-                            if livro['codigo'] == id_livro:
-                                codigo_existe = True
-                        if codigo_existe:
-                            while True:
-                                try:
-                                    id_livro = int(input('CÓDIGO JÁ CADASTRADO! TENTE OUTRO: '))
-                                    codigo_existe = True
-                                    if id_livro > 0:
-                                        break
-                                except ValueError:
-                                    print('ERRO! DIGITE SOMENTE NÚMEROS.')
-                    break
-                else:
-                    print('O CÓDIGO DEVE SER MAIOR QUE ZERO!')
-            except ValueError:
-                print('ERRO! DIGITE SOMENTE NÚMEROS.')
-    
+        id_livro = validar_codigo(livros, 'LIVRO') # Passagem de parâmetros/Função!
+
         while True: # Título vazio, ou números!
             titulo = str(input('TÍTULO DA OBRA: ').capitalize().strip())
             if titulo and not titulo.isdigit(): 
                 break
-            print('ERRO, TÍTULO INVÁLIDO!')
+            print('TÍTULO INVÁLIDO! ', end='')
 
         while True: # Nome do autor vazio, ou números!
             autor = str(input('NOME DO AUTOR: ').capitalize().strip())
             if autor and not autor.isdigit():
                 break
-            print('AUTOR INVÁLIDO! TENTE NOVAMENTE!')
+            print('AUTOR INVÁLIDO! ', end='')
 
         while True: # Categoria vazia, ou números!
             categoria = str(input('CATEGORIA DO LIVRO: ').capitalize().strip())
             if categoria and not categoria.isdigit():
                 break
-            print('CATEGORIA INVÁLIDA! TENTE NOVAMENTE!')
+            print('CATEGORIA INVÁLIDA! ', end='')
         while True:
                 try:
                     quantidade = int(input('QUANTIDADE DE EXEMPLARES: '))
                     if quantidade > 0:
                         break
                     else:
-                        print('A QUANTIDADE DEVE SER MAIOR QUE ZERO!')
+                        print('DEVE SER MAIOR QUE ZERO!', end='')
                 except ValueError:
-                    print('ERRO! DIGITE NOVAMENTE.')       
+                    print('DIGITE APENAS NÚMEROS! ', end='')       
         dados_livros = {
             'codigo': id_livro,
             'titulo': titulo,
@@ -68,6 +47,8 @@ def cadastro_livro():
             'quantidade': quantidade
             }
         livros.append(dados_livros)
+        for d in livros:
+            print(d)
 
 usuarios = []
 def cadastro_usuario():
@@ -79,37 +60,14 @@ def cadastro_usuario():
                 opcao = str(input('ERRO! Deseja cadastrar? [S/N] ')).upper()    
         if opcao == 'N':
             break
-
-        while True: # Estrutura sem letras / menor q 0!
-            try:
-                id_usuario = int(input('CÓDIGO: '))
-                if id_usuario > 0:
-                    codigo_existe = True # Abre
-                    while codigo_existe: # Códigos Repetidos!
-                        codigo_existe = False # Fecha
-                        for livro in livros:
-                            if livro['codigo'] == id_usuario:
-                                codigo_existe = True
-                        if codigo_existe:
-                            while True:
-                                try:
-                                    id_usuario = int(input('CÓDIGO JÁ CADASTRADO! TENTE OUTRO: '))
-                                    codigo_existe = True
-                                    if id_usuario > 0:
-                                        break
-                                except ValueError:
-                                    print('ERRO! DIGITE SOMENTE NÚMEROS.')
-                    break
-                else:
-                            print('O CÓDIGO DEVE SER MAIOR QUE ZERO!')
-            except ValueError:
-                        print('ERRO! DIGITE SOMENTE NÚMEROS.')
-
-                        
-            dados_usuarios = {
-                 'codigo': id_usuario,
-                 'nome': nome_usuario,
-                 'tipo_usuario': tipo_usuario,
-                 'curso_setor': curso_setor
+        id_usuario = validar_codigo(usuarios, 'USÚARIO') # Passagem de parâmetros/Função!
+        dados_usuarios = {
+                  'codigo': id_usuario,
+            #      'nome': nome_usuario,
+            #      'tipo_usuario': tipo_usuario,
+            #      'curso_setor': curso_setor
             }
         usuarios.append(dados_usuarios)
+        for d in usuarios:
+            print(d)
+
