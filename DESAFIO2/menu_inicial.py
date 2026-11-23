@@ -1,6 +1,9 @@
 from cadastros import cadastro_livro, cadastro_usuario
+from utilidades import limpar_tela
+from listagens import listar_livros
 
 while True:
+    limpar_tela()
     print('{:=^40}'.format(' BIBLIOPY | MENU PRINCIPAL ')) 
     print('''    1 - Cadastrar livro
     2 - Cadastrar usuário
@@ -11,16 +14,26 @@ while True:
     7 - Consultar situação de um livro
     8 - Consultar resumo da biblioteca
     9 - Encerrar aplicação''')
-    opcao = int(input('Informe a opção desejada: '))
-    
+
+    try:
+        opcao = int(input('Informe a opção desejada: '))
+        if opcao < 1 or opcao > 9:
+            print('OPÇÃO INVÁLIDA! ')
+            input('Pressione ENTER para continuar...')
+            continue
+    except ValueError:
+        print('APENAS NÚMEROS! ')
+        input('Pressione ENTER para continuar...')
+        continue
+
     match opcao:
         case 1:
             cadastro_livro()
         case 2:
             cadastro_usuario()
+        case 3:
+            listar_livros()
         case 9:
             print('PROGRAMA FINALIZADO...')
             break
-        case _:
-            print('Opção inválida! TENTE NOVAMENTE')
     

@@ -1,35 +1,44 @@
-from validacoes import validar_codigo
+from validacoes import validar_codigo, validar_entrada, validar_tipos
+from utilidades import limpar_tela
 
 livros = []
+categorias_livros = (
+    "Ficção",
+    "Não ficção",
+    "Romance",
+    "Fantasia",
+    "Ficção científica",
+    "Mistério",
+    "Suspense",
+    "Terror",
+    "Biografia",
+    "História",
+    "Autoajuda",
+    "Negócios",
+    "Tecnologia",
+    "Ciência",
+    "Infantil",
+    "Poesia",
+    "Quadrinhos",
+    "Didático",
+)
 def cadastro_livro():
-    print('{:=^40}'.format(' CADASTRO DE LIVROS '))
-    while True: 
-        # Condição para cadastro seguido!
-        opcao = str(input('Deseja cadastrar um livro? [S/N] ')).upper()
+    
+    while True: # Cadastros seguidos!
+        limpar_tela()
+        print('{:=^40}'.format(' CADASTRO DE LIVROS '))
+        opcao = str(input(f'Deseja cadastrar um livro? [S/N] ')).upper()
         while opcao not in ('S','N'):
-             opcao = str(input('ERRO! Deseja cadastrar? [S/N] ')).upper()    
+                opcao = str(input('ERRO! Deseja cadastrar? [S/N] ')).upper()    
         if opcao == 'N':
             break
 
-        id_livro = validar_codigo(livros, 'LIVRO') # Passagem de parâmetros/Função!
-
-        while True: # Título vazio, ou números!
-            titulo = str(input('TÍTULO DA OBRA: ').capitalize().strip())
-            if titulo and not titulo.isdigit(): 
-                break
-            print('TÍTULO INVÁLIDO! ', end='')
-
-        while True: # Nome do autor vazio, ou números!
-            autor = str(input('NOME DO AUTOR: ').capitalize().strip())
-            if autor and not autor.isdigit():
-                break
-            print('AUTOR INVÁLIDO! ', end='')
-
-        while True: # Categoria vazia, ou números!
-            categoria = str(input('CATEGORIA DO LIVRO: ').capitalize().strip())
-            if categoria and not categoria.isdigit():
-                break
-            print('CATEGORIA INVÁLIDA! ', end='')
+        # Passagem de parâmetros/Função!
+        id_livro = validar_codigo(livros, 'LIVRO')
+        titulo = validar_entrada('TITÚLO DA OBRA')
+        autor = validar_entrada('AUTOR')
+        categoria = validar_tipos('CATEGORIA', categorias_livros)
+            
         while True:
                 try:
                     quantidade = int(input('QUANTIDADE DE EXEMPLARES: '))
@@ -38,36 +47,52 @@ def cadastro_livro():
                     else:
                         print('DEVE SER MAIOR QUE ZERO!', end='')
                 except ValueError:
-                    print('DIGITE APENAS NÚMEROS! ', end='')       
-        dados_livros = {
+                    print('DIGITE APENAS NÚMEROS! ', end='') 
+        
+        dados_livros = { 
             'codigo': id_livro,
             'titulo': titulo,
             'autor': autor,
             'categoria': categoria,
-            'quantidade': quantidade
+            'quantidade': quantidade,
+            'disponiveis': quantidade
             }
+        
         livros.append(dados_livros)
-        for d in livros:
-            print(d)
+
+        print('→ LIVRO CADASTRADO COM SUCESSO!') 
+        input('Pressione ENTER para continuar...')
+
 
 usuarios = []
+tipos_usuario = ('Estudante','Funcionario','Professor')
 def cadastro_usuario():
-    print('{:=^40}'.format(' CADASTRO DE USUÁRIOS '))
-    while True: 
-        # Condição para cadastro seguido!
+    
+    while True: # Cadastros seguidos!
+        limpar_tela()
+        print('{:=^40}'.format(' CADASTRO DE USUÁRIOS '))
         opcao = str(input('Deseja cadastrar um usuário? [S/N] ')).upper()
         while opcao not in ('S','N'):
                 opcao = str(input('ERRO! Deseja cadastrar? [S/N] ')).upper()    
         if opcao == 'N':
             break
-        id_usuario = validar_codigo(usuarios, 'USÚARIO') # Passagem de parâmetros/Função!
+
+        # Passagem de parâmetros/Função!
+        id_usuario = validar_codigo(usuarios, 'USUÁRIO') 
+        nome_usuario = validar_entrada('NOME COMPLETO DO USUÁRIO')
+
+        print('\033[7m\033[1;30;33m ESTUDANTE | FUNCIONARIO | PROFESSOR \033[m')
+        tipo_usuario = validar_tipos('TIPO DE USUÁRIO', tipos_usuario)
+        curso_setor = validar_entrada('CURSO OU SETOR')
+                      
         dados_usuarios = {
                   'codigo': id_usuario,
-            #      'nome': nome_usuario,
-            #      'tipo_usuario': tipo_usuario,
-            #      'curso_setor': curso_setor
+                  'nome': nome_usuario,
+                  'tipo_usuario': tipo_usuario,
+                  'curso_setor': curso_setor
             }
+        
         usuarios.append(dados_usuarios)
-        for d in usuarios:
-            print(d)
 
+        print('→ USUÁRIO CADASTRADO COM SUCESSO!') 
+        input('Pressione ENTER para continuar...')
