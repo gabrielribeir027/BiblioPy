@@ -50,12 +50,12 @@ def cadastro_livro():
                     print('DIGITE APENAS NÚMEROS! ', end='') 
         
         dados_livros = { 
-            'codigo': id_livro,
-            'titulo': titulo,
-            'autor': autor,
-            'categoria': categoria,
-            'quantidade': quantidade,
-            'disponiveis': quantidade
+            'Codigo': id_livro,
+            'Título': titulo,
+            'Autor': autor,
+            'Categoria': categoria,
+            'Quantidade': quantidade,
+            'Disponiveis': quantidade
             }
         
         livros.append(dados_livros)
@@ -86,10 +86,10 @@ def cadastro_usuario():
         curso_setor = validar_entrada('CURSO OU SETOR')
                       
         dados_usuarios = {
-                  'codigo': id_usuario,
-                  'nome': nome_usuario,
-                  'tipo_usuario': tipo_usuario,
-                  'curso_setor': curso_setor
+                  'Codigo': id_usuario,
+                  'Nome': nome_usuario,
+                  'Tipo de usuário': tipo_usuario,
+                  'Curso ou setor': curso_setor
             }
         
         usuarios.append(dados_usuarios)

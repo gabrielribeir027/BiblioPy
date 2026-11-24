@@ -7,7 +7,7 @@ def validar_codigo(lista, tipo):
                 continue     
             codigo_existe = False
             for c in lista:
-                if opcao == c['codigo']:
+                if opcao == c['Codigo']:
                     codigo_existe = True 
                     break
             if codigo_existe:

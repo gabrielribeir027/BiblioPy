@@ -1,6 +1,6 @@
-from cadastros import cadastro_livro, cadastro_usuario
+from cadastros import cadastro_livro, cadastro_usuario, livros, usuarios
 from utilidades import limpar_tela
-from listagens import listar_livros
+from listagens import listagem_cadastros
 
 while True:
     limpar_tela()
@@ -32,7 +32,9 @@ while True:
         case 2:
             cadastro_usuario()
         case 3:
-            listar_livros()
+            listagem_cadastros(livros, 'LIVROS')
+        case 4:
+            listagem_cadastros(usuarios, 'USUÁRIOS')
         case 9:
             print('PROGRAMA FINALIZADO...')
             break
