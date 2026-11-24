@@ -2,9 +2,10 @@ from utilidades import limpar_tela
 def listagem_cadastros(lista, tipo):
     limpar_tela()
     print('{:=^40}'.format(f' LISTA DE {tipo} '))
-    tamanho_dicionario = len(lista)
 
-    if tamanho_dicionario == 0:
+    tamanho_listas = len(lista)
+
+    if tamanho_listas == 0:
         print(f'{tipo} AINDA NÃO CADASTRADOS! ')
         
     else:

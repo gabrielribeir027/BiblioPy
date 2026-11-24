@@ -1,6 +1,7 @@
 from cadastros import cadastro_livro, cadastro_usuario, livros, usuarios
 from utilidades import limpar_tela
 from listagens import listagem_cadastros
+from emprestimos import emprestimo_livro
 
 while True:
     limpar_tela()
@@ -35,6 +36,8 @@ while True:
             listagem_cadastros(livros, 'LIVROS')
         case 4:
             listagem_cadastros(usuarios, 'USUÁRIOS')
+        case 5:
+            emprestimo_livro()
         case 9:
             print('PROGRAMA FINALIZADO...')
             break
