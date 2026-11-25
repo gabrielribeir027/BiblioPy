@@ -1,4 +1,4 @@
-from validacoes import validar_codigo, validar_entrada, validar_tipos
+from validacoes import validar_codigo, validar_entrada, validar_tipos, validar_positivo
 from utilidades import limpar_tela
 
 livros = []
@@ -38,16 +38,7 @@ def cadastro_livro():
         titulo = validar_entrada('TITÚLO DA OBRA')
         autor = validar_entrada('AUTOR')
         categoria = validar_tipos('CATEGORIA', categorias_livros)
-            
-        while True:
-                try:
-                    quantidade = int(input('QUANTIDADE DE EXEMPLARES: '))
-                    if quantidade > 0:
-                        break
-                    else:
-                        print('DEVE SER MAIOR QUE ZERO!', end='')
-                except ValueError:
-                    print('DIGITE APENAS NÚMEROS! ', end='') 
+        quantidade = validar_positivo('QUANTIDADE DE EXEMPLARES')
         
         dados_livros = { 
             'Codigo': id_livro,
@@ -60,7 +51,7 @@ def cadastro_livro():
         
         livros.append(dados_livros)
 
-        print('→ LIVRO CADASTRADO COM SUCESSO!') 
+        print('→ LIVRO CADASTRADO COM SUCESSO.') 
         input('Pressione ENTER para continuar...')
 
 
@@ -94,5 +85,5 @@ def cadastro_usuario():
         
         usuarios.append(dados_usuarios)
 
-        print('→ USUÁRIO CADASTRADO COM SUCESSO!') 
+        print('→ USUÁRIO CADASTRADO COM SUCESSO.') 
         input('Pressione ENTER para continuar...')

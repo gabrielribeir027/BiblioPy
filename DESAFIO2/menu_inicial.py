@@ -19,11 +19,11 @@ while True:
     try:
         opcao = int(input('Informe a opção desejada: '))
         if opcao < 1 or opcao > 9:
-            print('OPÇÃO INVÁLIDA! ')
+            print('OPÇÃO INVÁLIDA. ')
             input('Pressione ENTER para continuar...')
             continue
     except ValueError:
-        print('APENAS NÚMEROS! ')
+        print('APENAS NÚMEROS. ')
         input('Pressione ENTER para continuar...')
         continue
 
