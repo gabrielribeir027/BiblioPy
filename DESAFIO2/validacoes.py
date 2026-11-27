@@ -54,7 +54,6 @@ def validar_positivo(tipo):
 
 def validar_codigo_emprestimos(lista, tipo):
     while True:
-        print('\033[7m\033[1;30;33m DIGITE 0 PARA CANCELAR. \033[m')
         codigo_usuario = input(f'Informe o código do {tipo}: ')
 
         if codigo_usuario == '0':

@@ -11,7 +11,8 @@ def emprestimo_livro():
                 opcao = str(input('ERRO! Deseja emprestar? [S/N] ')).upper()    
         if opcao == 'N':
             break
-
+        print('\033[7m\033[1;30;33m DIGITE 0 PARA CANCELAR. \033[m')
+        
         usuario_emprestimo = validar_codigo_emprestimos(usuarios, 'usuário')
         livro_emprestimo = validar_codigo_emprestimos(livros, 'livro')
         quantidade_emprestimo = validar_positivo('QUANTIDADE DE DIAS DE EMPRÉSTIMO')

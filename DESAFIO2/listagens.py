@@ -1,4 +1,5 @@
 from utilidades import limpar_tela
+
 def listagem_cadastros(lista, tipo):
     limpar_tela()
     print('{:=^40}'.format(f' LISTA DE {tipo} '))
@@ -14,3 +15,4 @@ def listagem_cadastros(lista, tipo):
                 print(f'\033[1;33m{chave}\033[m: {valor}')
             print('='*40)
     input('Pressione ENTER para continuar...')
+    

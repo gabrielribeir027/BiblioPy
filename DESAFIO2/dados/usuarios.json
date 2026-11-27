@@ -1,0 +1,14 @@
+[
+    {
+        "Codigo": 1,
+        "Nome": "Gabriel Santos Ribeiro",
+        "Tipo de usuário": "Estudante",
+        "Curso ou setor": "Ciência Da Computação"
+    },
+    {
+        "Codigo": 2,
+        "Nome": "Giovanna Proença Paz Freire",
+        "Tipo de usuário": "Professor",
+        "Curso ou setor": "Prof. Inglês"
+    }
+]

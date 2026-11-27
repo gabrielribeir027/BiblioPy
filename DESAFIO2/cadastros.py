@@ -1,7 +1,8 @@
 from validacoes import validar_codigo, validar_entrada, validar_tipos, validar_positivo
 from utilidades import limpar_tela
+from persistencia import salvar_dados, carregar_dados
 
-livros = []
+livros = carregar_dados('livros.json')
 categorias_livros = (
     "Ficção",
     "Não ficção",
@@ -50,12 +51,13 @@ def cadastro_livro():
             }
         
         livros.append(dados_livros)
+        salvar_dados('livros.json', livros)
 
         print('→ LIVRO CADASTRADO COM SUCESSO.') 
         input('Pressione ENTER para continuar...')
 
 
-usuarios = []
+usuarios = carregar_dados('usuarios.json')
 tipos_usuario = ('Estudante','Funcionario','Professor')
 def cadastro_usuario():
     
@@ -84,6 +86,7 @@ def cadastro_usuario():
             }
         
         usuarios.append(dados_usuarios)
+        salvar_dados('usuarios.json', usuarios)
 
         print('→ USUÁRIO CADASTRADO COM SUCESSO.') 
         input('Pressione ENTER para continuar...')

@@ -1,0 +1,10 @@
+[
+    {
+        "Codigo": 1,
+        "Título": "Python Básico",
+        "Autor": "André Olimpio",
+        "Categoria": "Tecnologia",
+        "Quantidade": 10,
+        "Disponiveis": 10
+    }
+]
