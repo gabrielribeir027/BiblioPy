@@ -57,9 +57,8 @@ def validar_codigo_emprestimos(lista, tipo):
         codigo_usuario = input(f'Informe o código do {tipo}: ')
 
         if codigo_usuario == '0':
-            print('EMPRÉSTIMO CANCELADO. ')
             return None
-
+        
         try:
             codigo_usuario = int(codigo_usuario)
 
@@ -69,7 +68,7 @@ def validar_codigo_emprestimos(lista, tipo):
                     codigo_encontrado = True 
                     break
             if codigo_encontrado:
-                break
+                return codigo_usuario
             else:
                 print('CÓDIGO NÃO ENCONTRADO!. ', end='')
 

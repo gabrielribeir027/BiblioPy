@@ -74,7 +74,7 @@ def cadastro_usuario():
         id_usuario = validar_codigo(usuarios, 'USUÁRIO') 
         nome_usuario = validar_entrada('NOME COMPLETO DO USUÁRIO')
 
-        print('\033[7m\033[1;30;33m ESTUDANTE | FUNCIONARIO | PROFESSOR \033[m')
+        print('\033[7m\033[1;30;32m ESTUDANTE | FUNCIONARIO | PROFESSOR \033[m')
         tipo_usuario = validar_tipos('TIPO DE USUÁRIO', tipos_usuario)
         curso_setor = validar_entrada('CURSO OU SETOR')
                       
@@ -88,5 +88,5 @@ def cadastro_usuario():
         usuarios.append(dados_usuarios)
         salvar_dados('usuarios.json', usuarios)
 
-        print('→ USUÁRIO CADASTRADO COM SUCESSO.') 
+        print('→ USUÁRIO CADASTRADO COM SUCESSO. ') 
         input('Pressione ENTER para continuar...')
